@@ -1,41 +1,41 @@
-# Vahşi Bahçe
+# Vahşi Bahçe 3D
 
-Clash of Clans tarzı **hayvanat bahçesi kurma** oyunu. Binalarını yükselt, hayvan yetiştir, turistlerden para kazan.
+Clash of Clans tarzı **3D hayvanat bahçesi kurma** oyunu. Binaları yükselt, low-poly 3D hayvanlar yetiştir, yürüyen turistlerden para kazan.
 
-## Konu
+## Özellikler
 
-Kendi hayvanat bahçeni kurarsın:
+- **Three.js** ile gerçek 3D sahne (gölgeler, yörünge kamerası)
+- Görünür **3D hayvanlar** ve **yürüyen turistler**
+- Yükseltilebilir 3D binalar (Seviye 1–5)
+- Kara canlılarıyla başla; **su canlıları Seviye 5’te** açılır
+- Turist harcamasıyla ekonomi + yerel kayıt
 
-- **Kara canlıları** ile başlarsın
-- **Su canlıları** ve **Akvaryum** Seviye 5’te açılır
-- Her seviye yeni hayvanların kilidini açar
-- Turistler bahçede gezip harcama yaptıkça para kazanırsın
+## Çalıştırma
 
-## Binalar
+```bash
+npm install
+npm run dev
+```
 
-| Bina | Görev |
+Tarayıcıda açılan adresi ziyaret et (genelde `http://localhost:5173`).
+
+Üretim derlemesi:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Kontroller
+
+| Giriş | İşlem |
 | --- | --- |
-| Bahçe Merkezi | Bina limiti ve turist kapasitesi |
-| Bilet Gişesi | Giriş ücreti ve turist geliş hızı |
-| Kara Habitatı | Kara hayvanları |
-| Akvaryum | Su hayvanları (Sv 5) |
-| Atıştırmalık Standı | Ekstra turist harcaması |
-| Hediyelik Dükkan | Harcama + XP |
+| Sürükle | Kamerayı döndür |
+| Tekerlek / pinch | Zoom |
+| Tıkla | Bina seç / yerleştir |
+| Alt menü | İnşa · Hayvanlar · Bahçe |
 
-Her bina **Seviye 1–5** arası yükseltilebilir.
+## Teknoloji
 
-## Hayvanlar
-
-Kara: Tavşan, Tavuk, Keçi, Tilki, Geyik, Kurt, Aslan, Fil  
-Su: Balık, Kaplumbağa, Fok, Yunus, Köpekbalığı, Balina  
-
-Hayvan almak için uygun habitatta boş yuva gerekir.
-
-## Nasıl oynanır
-
-1. `index.html` dosyasını tarayıcıda aç
-2. **Bahçeyi Aç**
-3. Alttaki **İnşa / Hayvanlar / Bahçe** menüsünü kullan
-4. Haritadaki bir binaya tıklayıp **Yükselt**
-
-İlerleme tarayıcıda otomatik kaydedilir.
+- Vite
+- Three.js
