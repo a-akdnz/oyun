@@ -1,22 +1,10 @@
 :root {
-  --grass-deep: #2f6b3c;
   --grass: #3f8a4e;
-  --grass-light: #62b56f;
-  --path: #c4a574;
-  --earth: #8b6914;
-  --sky-top: #7ec8e3;
-  --sky-bot: #b7e4c7;
-  --water: #2a7f9e;
-  --water-deep: #1d5f78;
   --ink: #1c3324;
   --foam: #f3fff6;
   --gold: #e8b84a;
-  --gold-dark: #b8871f;
-  --coral: #c45c48;
-  --panel: rgba(28, 51, 36, 0.88);
+  --panel: rgba(28, 51, 36, 0.9);
   --card: rgba(255, 255, 255, 0.12);
-  --danger: #c45c48;
-  --locked: #6b7c70;
   --radius: 1rem;
   --shadow: 0 16px 40px rgba(16, 40, 24, 0.28);
 }
@@ -34,7 +22,7 @@ body {
   overflow: hidden;
   color: var(--foam);
   font-family: "Nunito", sans-serif;
-  background: linear-gradient(180deg, var(--sky-top), var(--sky-bot) 38%, var(--grass) 38%);
+  background: #2f6b3c;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -54,12 +42,14 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: max(0.75rem, env(safe-area-inset-top)) 1rem 0.65rem;
-  background: linear-gradient(180deg, rgba(28, 51, 36, 0.55), transparent);
+  background: linear-gradient(180deg, rgba(28, 51, 36, 0.72), transparent);
   z-index: 5;
+  pointer-events: none;
 }
 
-.brand-block {
-  min-width: 10rem;
+#hud .stats,
+#hud .brand-block {
+  pointer-events: auto;
 }
 
 .brand {
@@ -88,7 +78,7 @@ body {
   min-width: 5.5rem;
   padding: 0.45rem 0.7rem;
   border-radius: 0.85rem;
-  background: rgba(28, 51, 36, 0.72);
+  background: rgba(28, 51, 36, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
 }
@@ -132,18 +122,37 @@ body {
   min-height: 0;
 }
 
-#map {
+#c {
   display: block;
   width: 100%;
   height: 100%;
-  cursor: pointer;
   touch-action: none;
+  cursor: grab;
+}
+
+#c:active {
+  cursor: grabbing;
+}
+
+.hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(28, 51, 36, 0.65);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 4;
 }
 
 .toast {
   position: absolute;
   left: 50%;
-  bottom: 1rem;
+  top: 1rem;
   transform: translateX(-50%);
   padding: 0.65rem 1rem;
   border-radius: 999px;
@@ -162,7 +171,7 @@ body {
 @keyframes toast-in {
   from {
     opacity: 0;
-    transform: translate(-50%, 8px);
+    transform: translate(-50%, -8px);
   }
   to {
     opacity: 1;
@@ -188,7 +197,6 @@ body {
   border-radius: var(--radius);
 }
 
-#inspect.hidden,
 .hidden {
   display: none !important;
 }
@@ -241,13 +249,12 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   padding: 0.65rem 1rem max(0.85rem, env(safe-area-inset-bottom));
-  background: linear-gradient(0deg, rgba(28, 51, 36, 0.92), rgba(28, 51, 36, 0.55));
+  background: linear-gradient(0deg, rgba(28, 51, 36, 0.94), rgba(28, 51, 36, 0.6));
   z-index: 7;
 }
 
 .dock-btn,
 .primary,
-.ghost,
 .buy-btn {
   appearance: none;
   border: none;
@@ -284,10 +291,6 @@ body {
 .primary:disabled {
   opacity: 0.45;
   cursor: not-allowed;
-}
-
-.primary:not(:disabled):hover {
-  filter: brightness(1.05);
 }
 
 .icon-btn {
@@ -419,16 +422,16 @@ body {
   place-items: center;
   padding: 1.25rem;
   background:
-    radial-gradient(ellipse at 20% 15%, rgba(126, 200, 227, 0.45), transparent 45%),
-    radial-gradient(ellipse at 80% 80%, rgba(63, 138, 78, 0.5), transparent 40%),
-    rgba(20, 40, 28, 0.55);
+    radial-gradient(ellipse at 20% 15%, rgba(126, 200, 227, 0.4), transparent 45%),
+    radial-gradient(ellipse at 80% 80%, rgba(63, 138, 78, 0.45), transparent 40%),
+    rgba(20, 40, 28, 0.45);
 }
 
 .welcome-card {
   width: min(440px, 100%);
   padding: 1.75rem 1.5rem 1.5rem;
   border-radius: 1.35rem;
-  background: rgba(28, 51, 36, 0.92);
+  background: rgba(28, 51, 36, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow);
   text-align: center;
@@ -501,5 +504,12 @@ body {
 
   .stat {
     flex: 1 1 40%;
+  }
+
+  .hint {
+    font-size: 0.7rem;
+    max-width: 92vw;
+    white-space: normal;
+    text-align: center;
   }
 }
