@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#3d7a4a" />
-    <title>Vahşi Bahçe</title>
+    <title>Vahşi Bahçe 3D</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <div id="app">
       <header id="hud">
         <div class="brand-block">
           <p class="brand">Vahşi Bahçe</p>
-          <p class="tagline">Kendi hayvanat bahçeni kur</p>
+          <p class="tagline">3D hayvanat bahçeni kur</p>
         </div>
         <div class="stats">
           <div class="stat coin">
@@ -27,9 +27,7 @@
           </div>
           <div class="stat xp">
             <span class="stat-label">Seviye <span id="level">1</span></span>
-            <div class="xp-track" aria-hidden="true">
-              <div id="xpFill" class="xp-fill"></div>
-            </div>
+            <div class="xp-track"><div id="xpFill" class="xp-fill"></div></div>
           </div>
           <div class="stat tourists">
             <span class="stat-label">Turistler</span>
@@ -43,22 +41,17 @@
       </header>
 
       <main id="stage">
-        <canvas id="map" aria-label="Hayvanat bahçesi haritası"></canvas>
+        <canvas id="c"></canvas>
         <div id="toast" class="toast hidden" role="status"></div>
+        <p id="hint" class="hint">Sürükle: bak · Tekerlek: zoom · Tıkla: seç / yerleştir</p>
       </main>
 
       <aside id="inspect" class="panel hidden">
         <button id="closeInspect" class="icon-btn" type="button" aria-label="Kapat">×</button>
         <h2 id="inspectTitle">Bina</h2>
         <p id="inspectDesc" class="muted"></p>
-        <div class="inspect-row">
-          <span>Seviye</span>
-          <strong id="inspectLevel">1</strong>
-        </div>
-        <div class="inspect-row">
-          <span>Etki</span>
-          <strong id="inspectEffect">—</strong>
-        </div>
+        <div class="inspect-row"><span>Seviye</span><strong id="inspectLevel">1</strong></div>
+        <div class="inspect-row"><span>Etki</span><strong id="inspectEffect">—</strong></div>
         <div id="habitatSlots" class="habitat-slots hidden"></div>
         <button id="upgradeBtn" class="primary" type="button">Yükselt</button>
       </aside>
@@ -80,20 +73,20 @@
       <section id="welcome" class="overlay">
         <div class="welcome-card">
           <p class="brand">Vahşi Bahçe</p>
-          <h1>Hayvanat bahçeni kur</h1>
+          <h1>3D hayvanat bahçeni kur</h1>
           <p>
-            Clash of Clans tarzı binaları yükselt, kara hayvanlarıyla başla, seviye atlayınca
-            su canlılarını aç. Turistler harcadıkça bahçen büyüsün.
+            Binaları yükselt, gerçek 3D hayvanlar ve turistlerle bahçeni canlı tut.
+            Kara canlılarıyla başla; su dünyası seviye 5’te açılır.
           </p>
           <ul class="tips">
-            <li>Bilet gişesi ve habitatlarla turist çek</li>
-            <li>Her seviye yeni hayvanlar açar</li>
-            <li>Su canlıları Seviye 5’te kilidi açılır</li>
+            <li>Haritayı sürükleyerek gez, tekerlekle yaklaş</li>
+            <li>Binalara tıklayıp yükselt</li>
+            <li>Turistler harcadıkça para kazan</li>
           </ul>
           <button id="startBtn" class="primary" type="button">Bahçeyi Aç</button>
         </div>
       </section>
     </div>
-    <script src="game.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
