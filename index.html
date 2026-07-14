@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a4a5c" />
+    <title>İnci Avı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game" aria-label="İnci Avı oyun alanı"></canvas>
+
+      <div id="hud" class="hidden" aria-live="polite">
+        <div class="hud-left">
+          <span class="label">Skor</span>
+          <span id="score">0</span>
+        </div>
+        <div class="hud-right">
+          <span class="label">Can</span>
+          <div id="lives" aria-label="Kalan can"></div>
+        </div>
+      </div>
+
+      <section id="overlay" class="overlay">
+        <div class="panel">
+          <p class="brand">İnci Avı</p>
+          <h1 id="title">Derinliklere dal</h1>
+          <p id="subtitle" class="subtitle">
+            İncileri topla, denizanası ve kayalardan uzak dur.
+          </p>
+          <div class="meta" id="meta">
+            <div>
+              <span class="label">En yüksek</span>
+              <strong id="highscore">0</strong>
+            </div>
+            <div>
+              <span class="label">Kontroller</span>
+              <strong>WASD / Oklar / Dokun</strong>
+            </div>
+          </div>
+          <button id="startBtn" type="button">Oyuna Başla</button>
+        </div>
+      </section>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
